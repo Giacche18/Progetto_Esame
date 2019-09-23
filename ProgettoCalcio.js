@@ -1,1 +1,4 @@
-/* Inizializzazione delle librerie */
+/* Librerie */
+const express = require ('express');
+const request = require ('request');
+
