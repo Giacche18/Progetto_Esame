@@ -3,7 +3,7 @@ const express = require ('express');
 const request = require ('request');
 
 /* Inizializzazione delle librerie */
-const SerieA = require ('./SerieA.json');
+const Partite = require ('./Partite.json');
 const app = express();
 
 /* Inizializzazione della Porta */
@@ -12,7 +12,7 @@ const PORTA = process.env.port || 4600;
 /* Funzione per visualizzare sul servizio Web tutte le informazioni messe a disposizione dall'API utilizzata */
 app.get('/' , (req, res) => {
 
-	res.send(SerieA);
+	res.send(Partite);
 	res.end();
 	});
 	
@@ -20,9 +20,9 @@ app.get('/' , (req, res) => {
 app.get('/title/:nome', (req, res) => {
 	let nome = decodeURIComponent(req.params.nome);
 	let risposta = [];
-	for(let i = 0; i < SerieA.length; i++)
-		if(SerieA[i]['title'].toLowerCase().includes(nome.toLocaleString()))
-			risposta.push(SerieA[i]);
+	for(let i = 0; i < Partite.length; i++)
+		if(Partite[i]['title'].toLowerCase().includes(nome.toLocaleString()))
+			risposta.push(Partite[i]);
 	
 	res.send(risposta);
 	res.end();
