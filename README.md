@@ -27,6 +27,11 @@ Questa risorsa, all'interno del servizio, viene interpretata come la richiesta d
 /title/:nome
 Questa risorsa, all'interno del servizio, viene interpretata come la richiesta di API riguardante solamente le partite richieste dall'utente all'interno dell'URL, sotto forma di documento JSON.
 
+## Utilizzo
+
+Andare al seguente [indirizzo](https://giacche18-progetto-esame.glitch.me/)
+
+
 ### Richiesta HTTP
 
 ``` http
