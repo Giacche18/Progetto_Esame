@@ -52,7 +52,7 @@ app.get('/authorization/', (req, res) => {
 		res.status(401);
 		res.set('WWW-Authenticate', 'Basic realm = Filippo');
 	}
-	res.en();
+	res.end();
 	});
 
 /* Funzione per far sapere all'utente la porta utilizzata e per far capire che tutto sta funzionando */
