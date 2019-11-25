@@ -27,6 +27,33 @@ app.get('/title/:nome', (req, res) => {
 	res.send(risposta);
 	res.end();
 	});
+	
+/* Funzione per autentificazione */
+app.get('/authorization/', (req, res) => {
+	let aut = req.headers['authorization'];
+	
+	if(aut)
+	{
+		let cred = aut.split(' ')[1];
+		let decod = new Buffer(cred, 'base64').toString();
+		const [login, pwd] = decod.split(':');
+		
+		if ((login == 'Filippo') && (pwd == 'password')){
+			res.send (Partite);
+		}
+		else
+		{
+			res.status(401);
+			res.set('WWW-Authenticate', 'Basic realm = Filippo');
+		}
+	}	
+	else	
+	{
+		res.status(401);
+		res.set('WWW-Authenticate', 'Basic realm = Filippo');
+	}
+	res.en();
+	});
 
 /* Funzione per far sapere all'utente la porta utilizzata e per far capire che tutto sta funzionando */
 const listener = app.listen(PORTA, () => {
